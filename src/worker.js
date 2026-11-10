@@ -62,9 +62,11 @@ export default {
           }
         );
 
-        const reply =
-          result.response ??
-          result.choices?.[0]?.message?.content;
+       console.log("MATH_TUTOR_AI_RESULT:", JSON.stringify(result));
+
+const reply =
+  result.response ??
+  result.choices?.[0]?.message?.content;
 
         if (!reply) {
           throw new Error("Модель не вернула текстовый ответ.");
