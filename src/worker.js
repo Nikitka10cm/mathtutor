@@ -72,15 +72,21 @@ export default {
 
         return Response.json({ reply });
 
-      } catch (error) {
-        return Response.json(
-          {
-            error: "Не удалось получить ответ от тьютора. Попробуй ещё раз.",
-            details: error.message
-          },
-          { status: 500 }
-        );
-      }
+     } catch (error) {
+  console.error("MATH_TUTOR_API_ERROR:", {
+    message: error?.message,
+    stack: error?.stack,
+    error: String(error)
+  });
+
+  return Response.json(
+    {
+      error: "Не удалось получить ответ от тьютора. Попробуй ещё раз.",
+      details: error?.message || String(error)
+    },
+    { status: 500 }
+  );
+}
     }
 
     return env.ASSETS.fetch(request);
