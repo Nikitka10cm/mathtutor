@@ -1,8 +1,14 @@
+
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mathtutor",
+  "main": "src/worker.js",
   "compatibility_date": "2026-11-11",
+  "ai": {
+    "binding": "AI"
+  },
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS"
   }
 }
